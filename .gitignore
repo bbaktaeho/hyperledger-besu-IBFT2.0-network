@@ -2,3 +2,6 @@
 **/database
 **/uploads
 **/DATABASE_METADATA.json
+
+**/besu.networks
+**/besu.ports
