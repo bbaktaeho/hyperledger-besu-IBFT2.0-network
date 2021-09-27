@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  bootnode:
+    container_name: node0
+    volumes:
+      - ./node0/data:/node/data
+      - ./genesis.json:/node/genesis.json
+      - ./config.toml:/node/config.toml
+    # restart: "on-failure"
+    image: hyperledger/besu:latest
+    working_dir: /node
+    # command:
+    # besu --config-file=config.toml \
+    # --rpc-http-enabled \
+    # --rpc-http-api=ETH,NET,IBFT \
+    # --host-allowlist="*" \
+    # --rpc-http-cors-origins="all"
+    ports:
+      - 8545:8545/tcp
+      - 50505:50505/tcp
+
+  node1:
+    container_name: node1
+    volumes:
+      - ./node0/data:/node/data
+      - ./genesis.json:/node/genesis.json
+      - ./config.toml:/node/config.toml
+    # restart: "on-failure"
+    image: hyperledger/besu:latest
+    working_dir: /node
+    # command:
+    #   besu --config-file=config.toml \
+    #   --rpc-http-enabled \
+    #   --rpc-http-api=ETH,NET,IBFT \
+    #   --host-allowlist="*" \
+    #   --rpc-http-cors-origins="all"
+    depends_on:
+      - bootnode
+    ports:
+      - 8546:8545/tcp
+      - 50506:50505/tcp
