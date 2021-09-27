@@ -16,4 +16,4 @@ rpc-http-api=["ETH","NET","IBFT","WEB3"]
 host-allowlist=["*"]
 rpc-http-cors-origins=["*"]
 
-logging="ALL"
+logging="INFO"
