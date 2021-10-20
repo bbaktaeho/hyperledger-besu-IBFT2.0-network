@@ -5,3 +5,8 @@
 
 **/besu.networks
 **/besu.ports
+
+**/key
+**/key.pub
+
+**/genesis.json
