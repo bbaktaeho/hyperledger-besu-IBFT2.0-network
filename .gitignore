@@ -6,7 +6,9 @@
 **/besu.networks
 **/besu.ports
 
+**/keys
 **/key
 **/key.pub
 
 **/genesis.json
+
