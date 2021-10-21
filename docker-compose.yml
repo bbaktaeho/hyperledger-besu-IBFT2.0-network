@@ -1,86 +1,107 @@
-version: "3"
+version: "3.6"
 
 services:
   bootnode:
     image: hyperledger/besu:latest
+    restart: "on-failure"
     container_name: node0
-    environment:
-      - LOG4J_CONFIGURATION_FILE=/node/log-config.xml
     volumes:
+      - ./log-config.xml:/node/log-config.toml
       - ./node0/data:/node/data
       - ./genesis.json:/node/genesis.json
       - ./config.toml:/node/config.toml
-    working_dir: /node
     entrypoint:
       - /bin/bash
       - -c
       - |
         /opt/besu/bin/besu \
-        --config-file=config.toml \
+        --config-file=/node/config.toml \
         --min-gas-price=0 ;
     ports:
       - 8545:8545/tcp
-      - 30303:30303/tcp
+      - 30303:30309/tcp
+    networks:
+      besu-tester:
+        ipv4_address: 172.16.239.11
 
   node1:
     image: hyperledger/besu:latest
+    restart: "on-failure"
     container_name: node1
     volumes:
+      - ./log-config.xml:/node/log-config.toml
       - ./node1/data:/node/data
       - ./genesis.json:/node/genesis.json
       - ./config.toml:/node/config.toml
-    working_dir: /node
     entrypoint:
       - /bin/bash
       - -c
       - |
         /opt/besu/bin/besu \
-        --config-file=config.toml \
+        --config-file=/node/config.toml \
         --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
       - 8546:8545/tcp
-      - 30304:30303/tcp
+      - 30304:30309/tcp
+    networks:
+      besu-tester:
+        ipv4_address: 172.16.239.12
 
   node2:
     image: hyperledger/besu:latest
+    restart: "on-failure"
     container_name: node2
     volumes:
+      - ./log-config.xml:/node/log-config.toml
       - ./node2/data:/node/data
       - ./genesis.json:/node/genesis.json
       - ./config.toml:/node/config.toml
-    working_dir: /node
     entrypoint:
       - /bin/bash
       - -c
       - |
         /opt/besu/bin/besu \
-        --config-file=config.toml \
+        --config-file=/node/config.toml \
         --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
       - 8547:8545/tcp
-      - 30305:30303/tcp
+      - 30305:30309/tcp
+    networks:
+      besu-tester:
+        ipv4_address: 172.16.239.13
 
   node3:
     image: hyperledger/besu:latest
+    restart: "on-failure"
     container_name: node3
     volumes:
+      - ./log-config.xml:/node/log-config.toml
       - ./node3/data:/node/data
       - ./genesis.json:/node/genesis.json
       - ./config.toml:/node/config.toml
-    working_dir: /node
     entrypoint:
       - /bin/bash
       - -c
       - |
         /opt/besu/bin/besu \
-        --config-file=config.toml \
+        --config-file=/node/config.toml \
         --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
       - 8548:8545/tcp
-      - 30306:30303/tcp
+      - 30306:30309/tcp
+    networks:
+      besu-tester:
+        ipv4_address: 172.16.239.14
+
+networks:
+  besu-tester:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.239.0/24
