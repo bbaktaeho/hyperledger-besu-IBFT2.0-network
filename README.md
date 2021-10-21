@@ -7,7 +7,7 @@
 - besu
 - docker, docker-compose
 
-### Settings network (local)
+### Settings local network
 
 Do not use Docker!
 
@@ -17,7 +17,7 @@ pwd
 besu-private-net-ibft
 ```
 
-Generate key-pair and genesis.json.
+Generate key-pair and genesis.json. (Optional)
 
 ```bash
 ./generate.sh

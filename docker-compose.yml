@@ -2,41 +2,85 @@ version: "3"
 
 services:
   bootnode:
+    image: hyperledger/besu:latest
     container_name: node0
+    environment:
+      - LOG4J_CONFIGURATION_FILE=/node/log-config.xml
     volumes:
       - ./node0/data:/node/data
       - ./genesis.json:/node/genesis.json
       - ./config.toml:/node/config.toml
-    # restart: "on-failure"
-    image: hyperledger/besu:latest
     working_dir: /node
-    # command:
-    # besu --config-file=config.toml \
-    # --rpc-http-enabled \
-    # --rpc-http-api=ETH,NET,IBFT \
-    # --host-allowlist="*" \
-    # --rpc-http-cors-origins="all"
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        /opt/besu/bin/besu \
+        --config-file=config.toml \
+        --min-gas-price=0 ;
     ports:
       - 8545:8545/tcp
-      - 50505:50505/tcp
+      - 30303:30303/tcp
 
   node1:
+    image: hyperledger/besu:latest
     container_name: node1
     volumes:
-      - ./node0/data:/node/data
+      - ./node1/data:/node/data
       - ./genesis.json:/node/genesis.json
       - ./config.toml:/node/config.toml
-    # restart: "on-failure"
-    image: hyperledger/besu:latest
     working_dir: /node
-    # command:
-    #   besu --config-file=config.toml \
-    #   --rpc-http-enabled \
-    #   --rpc-http-api=ETH,NET,IBFT \
-    #   --host-allowlist="*" \
-    #   --rpc-http-cors-origins="all"
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        /opt/besu/bin/besu \
+        --config-file=config.toml \
+        --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
       - 8546:8545/tcp
-      - 50506:50505/tcp
+      - 30304:30303/tcp
+
+  node2:
+    image: hyperledger/besu:latest
+    container_name: node2
+    volumes:
+      - ./node2/data:/node/data
+      - ./genesis.json:/node/genesis.json
+      - ./config.toml:/node/config.toml
+    working_dir: /node
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        /opt/besu/bin/besu \
+        --config-file=config.toml \
+        --min-gas-price=0 ;
+    depends_on:
+      - bootnode
+    ports:
+      - 8547:8545/tcp
+      - 30305:30303/tcp
+
+  node3:
+    image: hyperledger/besu:latest
+    container_name: node3
+    volumes:
+      - ./node3/data:/node/data
+      - ./genesis.json:/node/genesis.json
+      - ./config.toml:/node/config.toml
+    working_dir: /node
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        /opt/besu/bin/besu \
+        --config-file=config.toml \
+        --min-gas-price=0 ;
+    depends_on:
+      - bootnode
+    ports:
+      - 8548:8545/tcp
+      - 30306:30303/tcp
