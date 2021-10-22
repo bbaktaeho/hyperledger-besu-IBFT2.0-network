@@ -16,6 +16,7 @@ services:
       - |
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
+        --node-private-key-file=/node/data/key \
         --min-gas-price=0 ;
     ports:
       - 8545:8545/tcp
@@ -39,6 +40,7 @@ services:
       - |
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
+        --node-private-key-file=/node/data/key \
         --min-gas-price=0 ;
     depends_on:
       - bootnode
@@ -64,6 +66,7 @@ services:
       - |
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
+        --node-private-key-file=/node/data/key \
         --min-gas-price=0 ;
     depends_on:
       - bootnode
@@ -89,6 +92,7 @@ services:
       - |
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
+        --node-private-key-file=/node/data/key \
         --min-gas-price=0 ;
     depends_on:
       - bootnode
@@ -103,5 +107,7 @@ networks:
   besu-tester:
     driver: bridge
     ipam:
+      driver: default
       config:
         - subnet: 172.16.239.0/24
+          gateway: 172.16.239.1
