@@ -9,7 +9,7 @@
 
 ## Settings local netwodk (docker)
 
-| There is already a key pair generated. Do not `generate.sh`
+> There is already a key pair generated. Do not `generate.sh`
 
 1. run networks
 
