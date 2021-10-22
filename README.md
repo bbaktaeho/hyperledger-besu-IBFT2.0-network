@@ -7,7 +7,32 @@
 - besu
 - docker, docker-compose
 
-### Settings local network
+## Settings local netwodk (docker)
+
+| There is already a key pair generated. Do not `generate.sh`
+
+1. run networks
+
+   ```bash
+   ./start.sh
+   ```
+
+   - RPC URL: `localhost:8545, 8546, 8547, 8548`
+     <img src="./docs/metamask.png" width=400>
+
+2. stop networks
+
+   ```bash
+   ./stop.sh
+   ```
+
+3. stop and remove networks
+
+   ```bash
+   ./remove.sh
+   ```
+
+### ~~Settings local network (generate key pair)~~
 
 Do not use Docker!
 
