@@ -6,5 +6,5 @@
 **/besu.networks
 **/besu.ports
 
-**/genesis.json
+# **/genesis.json
 
