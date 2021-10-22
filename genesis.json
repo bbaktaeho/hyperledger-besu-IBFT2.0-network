@@ -1,0 +1,35 @@
+{
+  "config": {
+    "chainId": 1337,
+    "muirglacierblock": 0,
+    "ibft2": {
+      "blockperiodseconds": 6,
+      "epochlength": 30000,
+      "requesttimeoutseconds": 12,
+      "blockreward": "1000000000000000",
+      "miningbeneficiary": "0xaC84E3540BC6866eeF4d2735462a05b090Ea4f10"
+    }
+  },
+  "nonce": "0x0",
+  "timestamp": "0x58ee40ba",
+  "gasLimit": "0x47b760",
+  "difficulty": "0x1",
+  "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {
+    "85F4c4C2e04CcAbbd32c7833D3b364921b0E3663": {
+      "balance": "90000000000000000000000"
+    },
+    "627306090abaB3A6e1400e9345bC60c78a8BEf57": {
+      "privateKey": "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
+      "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+      "balance": "90000000000000000000000"
+    },
+    "f17f52151EbEF6C7334FAD080c5704D77216b732": {
+      "privateKey": "ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f",
+      "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+      "balance": "90000000000000000000000"
+    }
+  },
+  "extraData": "0xf87ea00000000000000000000000000000000000000000000000000000000000000000f85494a21f53047f523f8e67131ce37fd71778d92e17049465aa672b8c94fb05fad8123eec39f84887f7e6cb9412e343203f20e415dfd1aab356692bcbdabf690b940f8b9a1449cc8dcb904da8c54bf8a123d1b9e4ba808400000000c0"
+}
