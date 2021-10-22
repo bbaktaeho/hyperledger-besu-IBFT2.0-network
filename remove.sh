@@ -3,7 +3,7 @@
 echo "Stop and remove network..."
 docker-compose down -v
 docker-compose rm -sfv
-docker network prune
+docker network rm besu-tester
 
 echo "remove database files..."
 for i in `seq 0 3`; do
