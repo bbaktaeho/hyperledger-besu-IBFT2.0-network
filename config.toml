@@ -2,7 +2,7 @@
 data-path="/node/data/"
 
 # Network
-# bootnodes=["enode://202bccd94960181c17dde7cc03f62f80793ae192c1384b1f6226b84f0aac9e6caf2c74ea20d8888edf6ba7a80ced326491e68e88014e6d08f3b5011c7dcad9f9@127.0.0.1:30303enode://202bccd94960181c17dde7cc03f62f80793ae192c1384b1f6226b84f0aac9e6caf2c74ea20d8888edf6ba7a80ced326491e68e88014e6d08f3b5011c7dcad9f9@172.16.239.11:30309"]
+bootnodes=["enode://202bccd94960181c17dde7cc03f62f80793ae192c1384b1f6226b84f0aac9e6caf2c74ea20d8888edf6ba7a80ced326491e68e88014e6d08f3b5011c7dcad9f9@172.16.239.11:30309"]
 
 # Chain
 genesis-file="/node/genesis.json"
@@ -18,5 +18,5 @@ rpc-http-cors-origins=["*"]
 rpc-http-api=["EEA","WEB3","ETH","NET","PRIV","PERM","IBFT"]
 rpc-ws-api=["EEA","WEB3","ETH","NET","PRIV","PERM","IBFT"]
 
-
+# OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL
 logging="INFO"
