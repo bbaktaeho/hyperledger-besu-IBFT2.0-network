@@ -18,9 +18,11 @@
    ```
 
    - RPC URL: `localhost:8545, 8546, 8547, 8548`
+   
      <img src="./docs/metamask.png" width=400>
 
    - Block Explorer: `localhost:25000`
+
      <img src="./docs/explorer.png" width=400>
 
 2. stop networks
