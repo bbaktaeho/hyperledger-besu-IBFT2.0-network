@@ -17,7 +17,7 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
+        --min-gas-price=4761904761904 ;
     ports:
       - 8545:8545/tcp
       - 30303:30309/tcp
@@ -41,7 +41,7 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
+        --min-gas-price=5714285714285 ;
     depends_on:
       - bootnode
     ports:
@@ -67,7 +67,7 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
+        --min-gas-price=6190476190476 ;
     depends_on:
       - bootnode
     ports:
@@ -93,7 +93,7 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
+        --min-gas-price=6666666666666 ;
     depends_on:
       - bootnode
     ports:
@@ -102,6 +102,18 @@ services:
     networks:
       besu-tester:
         ipv4_address: 172.16.239.14
+
+  explorer:
+    image: alethio/ethereum-lite-explorer
+    environment:
+      - APP_NODE_URL=http://localhost:8545
+    depends_on:
+      - bootnode
+    ports:
+      - 25000:80/tcp
+    networks:
+      besu-tester:
+        ipv4_address: 172.16.239.15
 
 networks:
   besu-tester:
