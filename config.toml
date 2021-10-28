@@ -15,8 +15,8 @@ rpc-http-enabled=true
 host-allowlist=["*"]
 rpc-http-cors-origins=["*"]
 
-rpc-http-api=["EEA","WEB3","ETH","NET","PRIV","PERM","IBFT"]
-rpc-ws-api=["EEA","WEB3","ETH","NET","PRIV","PERM","IBFT"]
+rpc-http-api=["EEA","WEB3","ETH","NET","PRIV","PERM","IBFT","TXPOOL", "PLUGINS"]
+rpc-ws-api=["EEA","WEB3","ETH","NET","PRIV","PERM","IBFT","TXPOOL", "PLUGINS"]
 
 # OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL
 logging="INFO"
