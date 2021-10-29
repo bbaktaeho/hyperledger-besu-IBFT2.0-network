@@ -11,6 +11,8 @@
 
 > There is already a key pair generated. Do not `generate.sh`
 
+If each validator wants to revive a gas, remove the `miningbeneficiary` in genesis file.
+
 1. run networks
 
    ```bash
@@ -18,7 +20,7 @@
    ```
 
    - RPC URL: `localhost:8545, 8546, 8547, 8548`
-   
+
      <img src="./docs/metamask.png" width=400>
 
    - Block Explorer: `localhost:25000`

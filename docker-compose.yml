@@ -17,7 +17,6 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
     ports:
       - 8545:8545/tcp
       - 30303:30309/tcp
@@ -41,7 +40,6 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
@@ -67,7 +65,6 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
@@ -93,7 +90,6 @@ services:
         /opt/besu/bin/besu \
         --config-file=/node/config.toml \
         --node-private-key-file=/node/data/key \
-        --min-gas-price=0 ;
     depends_on:
       - bootnode
     ports:
